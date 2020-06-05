@@ -5,5 +5,5 @@
       - @question.each do |q|
         .question__items
           .question__items__item
-            =link_to "#", class:"question__items__item__box" do
+            =link_to new_question_path, class:"question__items__item__box" do
               = q.content
