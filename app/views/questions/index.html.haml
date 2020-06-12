@@ -2,8 +2,9 @@
   = render 'groups/header'
   .contents
     .question
-      - @question.each do |q|
+      - @questions.each do |q|
         .question__items
           .question__items__item
-            =link_to new_question_path, class:"question__items__item__box" do
+            =link_to new_question_answer_path(q.id), class:"question__items__item__box" do
               = q.content
+              
