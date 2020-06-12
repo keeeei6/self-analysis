@@ -1,24 +1,54 @@
-# README
+## usresテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, add_index|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 
-Things you may want to cover:
+### Association
+- has_many :questions, through: :questions_users
+- has_many :answres
+- has_many :questions_users
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## questionsテーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|content|string|
 
-* Database initialization
+### Association
+- has_many :users, through: :qusetions_users
+- has_many :answres
+- has_many :questions_users
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## answerテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|answer|text|null: false|
+|question_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_kye: true|
+
+### Association
+- belongs_to :user
+- belongs_to :question
+
+
+
+
+## questions_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|question_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :question
