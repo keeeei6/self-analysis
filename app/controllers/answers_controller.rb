@@ -2,7 +2,14 @@ class AnswersController < ApplicationController
 
   def new
     @question = Question.find(params[:question_id])
-    @answer = Answer.new
+    @answers = Answer.new
+    # @answer = Answer.find(params[:question_id],user_id: current_user.id)
+    # if @answer
+    #   render question: :show
+    # else
+    #   @answer = Answer.new(question_id: params[:id],user_id: current_user.id)
+    #   render answer: :new
+    # end
   end
 
   def create
