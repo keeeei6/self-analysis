@@ -2,25 +2,11 @@
   = render "header"
   .contents
     .contents__items
-      .contents__items__item
-        .hoge 
-          = link_to questions_path, class:"category" do
-            = "introduction"
-      .contents__items__item
-        %p.hoge 幼少期
-      .contents__items__item
-        %p.hoge 小学校
-      .contents__items__item
-        %p.hoge 中学校
-      .contents__items__item
-        %p.hoge 高校
-      .contents__items__item
-        %p.hoge 大学
-      .contents__items__item
-        %p.hoge 社会人 (20代)
-      .contents__items__item
-        %p.hoge 未来
-      .contents__items__item
-        %p.hoge 現在
+      - @groups.each do |group|
+        .contents__items__item
+          .hoge 
+            = link_to group_questions_path(group.id), class:"category" do
+              = group.file
+      
 
 
