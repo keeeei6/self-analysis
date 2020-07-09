@@ -6,16 +6,12 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = Answer.find_by(question_id: params[:id],user_id: current_user.id)
-    if @answer.present?
-      render 'show'
+    @questions = Question.find_by(group_id: params[:group_id])
+    if @answer.nil?
+      redirect_to new_group_question_answer_path(group_id: params[:group_id], question_id: params[:id])
     else
-      redirect_to group_questions_path(group_id: params[:group_id])
+      render 'show'
     end
   end
 
-  # private
-  # def answer_params
-  #   params.require(:answer).permit(:answer, :question_id)
-  # end
- 
 end

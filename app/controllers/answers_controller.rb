@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-
   def new
     @question = Question.find(params[:question_id])
     if Answer.find_by(question_id: params[:question_id], user_id: current_user.id).blank?
@@ -17,16 +16,29 @@ class AnswersController < ApplicationController
       question_id: params[:question_id],
       user_id: current_user.id
     )
-
     if @answer.save
       redirect_to group_questions_path(params[:group_id])
     else
       render :new
     end
   end
+
+  def edit
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find_by(question_id: params[:id], user_id: current_user.id)
+  end
+
+  def update
+    @answer = Answer.find_by(question_id: params[:id], user_id: current_user.id)
+    if @answer.update(answer_params)
+      redirect_to group_questions_path(params[:group_id])
+    else
+      render :edit
+    end
+  end
+
   private
   def answer_params
     params.require(:answer).permit(:answer, :question_id)
   end
-
 end
