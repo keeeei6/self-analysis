@@ -5,8 +5,8 @@
       - @questions.each do |q|
         .question__items
           .question__items__item
-            =link_to new_question_answer_path(q.id), class:"question__items__item__box" do
+            =link_to new_group_question_answer_path(q.group.id, q.id), class:"question__items__item__box" do
               = q.content
           .question__items__show
-            = link_to question_path(q.id), class:"question__items__show__btn" do
+            = link_to group_question_path(q.group.id, q.id), class:"question__items__show__btn" do
               = "・・・"
