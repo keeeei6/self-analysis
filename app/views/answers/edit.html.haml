@@ -1,0 +1,6 @@
+.body
+  = render 'groups/header'
+  .form
+    = form_for [@question, @answer], url: group_question_answer_path(group_id: @question.group_id, question_id: @question.id) do |f|
+      = f.text_area :answer, class: 'form__text', placeholder: "メモ → 抽象化 → 転用"
+      = f.submit 'SEND', class: 'form__btn'

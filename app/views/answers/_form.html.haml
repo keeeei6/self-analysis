@@ -1,0 +1,4 @@
+.form
+  = form_for [@question, @answer], url: group_question_answers_path, method: :post do |f|
+    = f.text_area :answer, class: 'form__text', placeholder: "メモ → 抽象化 → 転用"
+    = f.submit 'SEND', class: 'form__btn'
