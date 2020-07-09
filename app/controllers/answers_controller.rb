@@ -2,14 +2,12 @@ class AnswersController < ApplicationController
 
   def new
     @question = Question.find(params[:question_id])
-    @answers = Answer.new
-    # @answer = Answer.find(params[:question_id],user_id: current_user.id)
-    # if @answer
-    #   render question: :show
-    # else
-    #   @answer = Answer.new(question_id: params[:id],user_id: current_user.id)
-    #   render answer: :new
-    # end
+    if Answer.find_by(question_id: params[:question_id], user_id: current_user.id).blank?
+      @answer = Answer.new
+    else
+      redirect_to group_question_path(@question.group.id, @question.id)
+    end
+
   end
 
   def create
@@ -21,12 +19,11 @@ class AnswersController < ApplicationController
     )
 
     if @answer.save
-      redirect_to questions_path
+      redirect_to group_questions_path(params[:group_id])
     else
       render :new
     end
   end
-
   private
   def answer_params
     params.require(:answer).permit(:answer, :question_id)
