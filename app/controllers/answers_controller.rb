@@ -37,6 +37,15 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    answer = Answer.find_by(question_id: params[:id], user_id: current_user.id)
+    if answer.destroy
+      redirect_to group_questions_path(params[:group_id])
+    else
+      redirect_to root_path
+    end
+  end
+
   private
   def answer_params
     params.require(:answer).permit(:answer, :question_id)
