@@ -1,6 +1,5 @@
 class Question < ApplicationRecord
-  has_many :users, through: :answers
-  has_many :answers
+  has_many :users, through: :answer
+  has_many :answer
   belongs_to :group
-  # has_many :questions_users
 end
