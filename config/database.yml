@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: self-analysis_production
-  username: self-analysis
-  password: <%= ENV['SELF-ANALYSIS_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
