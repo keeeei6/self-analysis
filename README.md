@@ -106,3 +106,11 @@ password：a0000000 <br>
 ### Association
 - belongs_to :user
 - belongs_to :question
+
+<br>
+<br>
+
+## APPイメージ画像
+<br>
+
+![ファイル選択](sample.jpg)
