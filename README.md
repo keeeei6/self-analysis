@@ -24,6 +24,9 @@
 ID (Email)：test@test <br>
 password：a0000000 <br>
 <br>
+【introduction】と【現在】のところをクリックしていただくと、questionごとに私が回答したanswerが記載してあります。
+<br>
+
 
 ## 作成背景
 自分のやりたいことが何なのか迷っていたり、現状を変えたいと言う人が <br>
