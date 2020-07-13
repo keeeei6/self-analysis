@@ -3,7 +3,7 @@
   .contents
     .answer-box
       %p.hoge
-        = "・#{@answer.answer} "
+        = simple_format(@answer.answer)
     .answer-edit
       = link_to edit_group_question_answer_path(group_id: @questions.group_id, question_id: @questions.id, answer_id: @answer.id) do
         = "編集"
